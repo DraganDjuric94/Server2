@@ -22,7 +22,7 @@ public class KnockKnockServer {
         
         ServerSocket serverSocket = null;
         try {
-            serverSocket = new ServerSocket(4444);
+            serverSocket = new ServerSocket(80);
         } catch (IOException e) {
             System.out.println("Could not listen on port: 4444.");
             System.exit(1);
