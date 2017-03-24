@@ -24,15 +24,16 @@ public class KnockKnockServer {
         try {
             serverSocket = new ServerSocket(4444);
         } catch (IOException e) {
-            System.err.println("Could not listen on port: 4444.");
+            System.out.println("Could not listen on port: 4444.");
             System.exit(1);
         }
         
+        System.out.println("Listening on 4444");
         Socket clientSocket = null;
         try {
             clientSocket = serverSocket.accept();
         } catch (IOException e) {
-            System.err.println("Accept failed.");
+            System.out.println("Accept failed.");
             System.exit(1);
         }
         
@@ -41,9 +42,13 @@ public class KnockKnockServer {
                 new InputStreamReader(
                         clientSocket.getInputStream()));
         String inputLine, outputLine = null;
+        
+        outputLine = "SISURNA!";
 
         
         while ((inputLine = in.readLine()) != null) {
+            System.out.println(inputLine);
+            System.out.println(outputLine);
             out.println(outputLine);
             if (outputLine.equals("Bye."))
                 break;
